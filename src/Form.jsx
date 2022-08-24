@@ -1,10 +1,21 @@
-export const Form = () => {
+import { useState } from 'react';
+
+export const Form = (props) => {
+    const [text, setText] = useState('');
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        props.onAddLang(text);
+    }
+
 
     return (
-        <form action="">
-            <label htmlFor=""><b>フォーム</b></label><br />
-            <input type="text" /><br />
-            <input type="button" value="送信" />
-        </form>
+        <div>
+            <h5 >追加フォーム</h5>
+            <form onSubmit={submitForm}>
+                <input type="text"  value={text} onChange={(e) => {setText(e.target.value)}}/><br />
+                <button>送信</button>
+            </form>
+        </div>
     )
 }
