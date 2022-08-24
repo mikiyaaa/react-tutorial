@@ -1,17 +1,26 @@
 import React from "react";
 import { List } from './List'
 import { Form } from './Form';
+import { JS_FRAMEWORKS } from './const/js_frameworks.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tab: 'list'
+      tab: 'list',
+      frameworks: JS_FRAMEWORKS
     }
   }
 
+  addFrameWork(fw) {
+    this.setState({ 
+      tab: 'list',
+      frameworks: [...this.state.frameworks, fw] 
+    });
+  }
+
   render() {
-    const { tab } = this.state;
+    const { tab, frameworks } = this.state;
     return (
       <div>
         <header>
@@ -22,7 +31,7 @@ class App extends React.Component {
         </header>
         <hr></hr>
         {
-          tab === 'list' ? <List /> : <Form />
+          tab === 'list' ? <List frameworks={frameworks} /> : <Form onAddFrameWork={(fw) => {this.addFrameWork(fw)}} />
         }
       </div>
     )
