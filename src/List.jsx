@@ -1,18 +1,14 @@
 import React from "react";
-
-const JS_FRAMEWORKS = [
-    'React',
-    'Vue',
-    'Angular',
-];
+import { JS_FRAMEWORKS } from './const/js_frameworks'
 
 class List extends React.Component {
 
     render() {
+        const { frameworks } = this.props; // Appコンポーネントから受け取る
         return (
             <>
                 {
-                    JS_FRAMEWORKS.map((fw, index) => {
+                    frameworks.map((fw, index) => {
                         return <div key={index}>{fw}</div>
                     })
                 }
