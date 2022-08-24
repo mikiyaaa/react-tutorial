@@ -1,5 +1,4 @@
 import React from "react";
-import { JS_FRAMEWORKS } from './const/js_frameworks'
 
 class List extends React.Component {
 

@@ -19,7 +19,7 @@ export class Form extends React.Component {
             <div>
                 <h5>新しいライブラリを追加</h5>
                 <form onSubmit={(e) => {this.submitForm(e)}}>
-                    {/* 入力フォームに変更があるたびにsteteを変更する */}
+                    {/* 入力フォームに変更があるたびにstateを変更する */}
                     <input type="text" value={text} onChange={(e) => {this.setState({ text: e.target.value })}} /><br/>
                     <button>送信</button>
                 </form>

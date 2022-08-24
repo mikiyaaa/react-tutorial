@@ -1,15 +1,24 @@
 import React from "react";
 import { List } from './List'
 import { Form } from './Form';
-import { JS_FRAMEWORKS } from './const/js_frameworks.js'
+import { getFrameworks } from './const/js_frameworks.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       tab: 'list',
-      frameworks: JS_FRAMEWORKS
+      frameworks: [],
     }
+  }
+
+  componentDidMount() {
+    this.fetchFrameworks();
+  }
+
+  async fetchFrameworks() {
+    const frameworks = await getFrameworks();
+    this.setState({frameworks: frameworks});
   }
 
   addFrameWork(fw) {
