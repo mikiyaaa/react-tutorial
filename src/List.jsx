@@ -1,18 +1,10 @@
-
-const NODE_VERSION_MANAGE_TOOLS = [
-    'nodebrew',
-    'nodenv',
-    'nvm',
-    'volta'
-];
-
-const List = () => {
+const List = (props) => {
 
     return (
         <>
-            <h5>Nodeバージョン管理ツール</h5>
+            <h5>習得言語</h5>
             {
-                NODE_VERSION_MANAGE_TOOLS.map((tool, index) => {
+                props.langs.map((tool, index) => {
                     return <div key={index}>{tool}</div>
                 })
             }
