@@ -1,11 +1,21 @@
 import { List } from './List';
 import { Form } from './Form';
-import { useState } from 'react';
-import { LANGUAGES } from './const/lauguages';
+import { useState, useEffect } from 'react';
+import { getLanguages } from './const/lauguages';
 
 function App() {
-  const [tab, setTab] = useState('form');
-  const [langs, setLangs] = useState(LANGUAGES);
+  const [tab, setTab] = useState('list');
+  const [langs, setLangs] = useState([]);
+
+  useEffect(() => {
+    console.log('App.js: useEffect()');
+    fetchLanguages();
+  }, []) 
+
+  const fetchLanguages = async () => {
+    const languages = await getLanguages();
+    setLangs(languages);
+  }
 
   const addLang = (lang) => {
     setLangs([...langs, lang]);
